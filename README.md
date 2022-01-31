@@ -18,15 +18,18 @@ Attributs:
  - `Sommet[]:sommets` : Liste des sommets de longeur N.
  - `int[][]:matrice` : La matrice d'adjacence du graphe, un liste de taille N*N, avec
  `matrice[a][b]` est le nombre d'ârete entre `a` et `b`.
+ - `int[][]:tableau_bellman` Matrice de taille N*N-1, qui sera utilisée par la méthode `bellman_ford` (Ajouté après création de doc). `None` par défaut
 
 Méhodes:
 
  - `liste_precedent(Sommet:sommet) -> int[]:liste_index` l'index des sommets précédents de `sommet`.
- - `liste_precedent_tous() -> int[][]:liste_index` Renvois la liste des sommets précédents de tout
+ - `liste_precedent_tous() -> int[][]:liste_index` Renvoit la liste des sommets précédents de tout
  les sommets du graphe.
- - `bellman_ford(Sommet:debut) -> int[]:distances` Resois un sommet puis donne la distance la 
- plus courte de `debut` aux autre sommets.
- - `index_sommet(Sommet:sommet) -> int:index` resois un sommet et donne son index dans la liste
+ - `bellman_ford(Sommet:debut) -> int[]:distances` Reçoit un sommet de début, crée un tableau de bellman avec `creer_tableau_bellman` puis donne la distance la 
+ plus courte de `debut` aux autre sommets. (Modifié après création de doc)
+ - `index_sommet(Sommet:sommet) -> int:index` Reçoit un sommet et donne son index dans la liste
+ - `creer_tableau_bellman(Sommet:debut, Sommet[]:sommets)` Reçoit le sommet de départ. Crée un tableau de taille N*N-1, ou N est le nombre de sommets, soit la taille de 
+`sommets`. Remplit le tableau d'infinis floats, puis remplit de 0 la colonne correspondant au sommet `debut`. Renvoit le tableau crée (Ajouté après création de doc)
 
 ## `Graphe_BF`
 
