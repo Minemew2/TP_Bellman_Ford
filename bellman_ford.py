@@ -18,15 +18,19 @@ class Graphe:
                         [0, 0, 0, 2, 11],
                         [0, 0, 0, 0, 3],
                         [0, 0, 0, 0, 0]]
+    def creer_tableau_bellman(self,debut,sommets):
+        tableau = [[0, np.inf, np.inf, np.inf, np.inf],
+                   [0, np.inf, np.inf, np.inf, np.inf],
+                   [0, np.inf, np.inf, np.inf, np.inf],
+                   [0, np.inf, np.inf, np.inf, np.inf]]
+        return tableau
 
-    def bellman_ford(self, debut):
+    def 
+    def bellman_ford(self, debut, sommets):
         # tableau = []
         # for x in range(len(self.sommets)-1):
-            # tableau.append([y for y in range(len(self.sommets))])
-        tableau = [[0,np.inf,np.inf,np.inf],
-                   [],
-                   [],
-                   []]
+        # tableau.append([y for y in range(len(self.sommets))])
+        tableau = self.creer_tableau_bellman(debut,sommets)
      
     def liste_precedent(self,Sommet):
         index_sommet = -1

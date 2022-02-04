@@ -25,7 +25,7 @@ Méhodes:
  - `liste_precedent(Sommet:sommet) -> int[]:liste_index` l'index des sommets précédents de `sommet`.
  - `liste_precedent_tous() -> int[][]:liste_index` Renvoit la liste des sommets précédents de tout
  les sommets du graphe.
- - `bellman_ford(Sommet:debut) -> int[]:distances` Reçoit un sommet de début, crée un tableau de bellman avec `creer_tableau_bellman` puis donne la distance la 
+ - `bellman_ford(Sommet:debut,Sommet[]:sommets) -> int[]:distances` Reçoit un sommet de début, crée un tableau de bellman avec `creer_tableau_bellman` puis donne la distance la 
  plus courte de `debut` aux autre sommets. (Modifié après création de doc)
  - `index_sommet(Sommet:sommet) -> int:index` Reçoit un sommet et donne son index dans la liste
  - `creer_tableau_bellman(Sommet:debut, Sommet[]:sommets)` Reçoit le sommet de départ. Crée un tableau de taille N*N-1, ou N est le nombre de sommets, soit la taille de 
