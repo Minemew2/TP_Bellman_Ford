@@ -89,19 +89,28 @@ class Graphe:
                             list_prec_tous.append(list_prec)
         return list_prec_tous
 
-    def index_sommet(self, sommet):
-        if sommet == self.sommets[0]:
-            return 0
-        elif sommet == self.sommets[1]:
-            return 1
-        elif sommet == self.sommets[2]:
-            return 2
-        elif sommet == self.sommets[3]:
-            return 3
-        elif sommet == self.sommets[4]:
-            return 4
+    def index_sommet(self,sommet):
+        index = 0
+        for sommets in self.sommets:
+            if sommets == sommet:
+                 return index
+            else:
+                index+=1
+    
 
+    def post_condidtion(self):
+        liste_bellman = self.bellman_ford(g.sommets[0])
+        for sommet in self.sommets[1:]:
+            index_sommet = self.index_sommet(sommet)
+            l = self.liste_precedent(sommet)
+            for antecedant in l:
+                chemin = self.matrice[antecedant][index_sommet]
+                if liste_bellman[index_sommet]>chemin+liste_bellman[antecedant]:
+                    return False
+        return True
+                   
 
 if __name__ == "__main__":
     g = Graphe()
     print(g.bellman_ford(g.sommets[0]))
+    print(g.post_condidtion())
