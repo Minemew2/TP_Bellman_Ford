@@ -52,7 +52,8 @@ class Graphe:
                 # if line_n[index_sommet] - line_n[index_pre] >= self.matrice[index_pre][index_sommet]:
                     # return "Belman ne s'applique pas au graphe"
 
-        return tableau[len(self.sommets)-2]
+        if self.post_condidtion() == True :
+            return tableau[len(self.sommets)-2]
     def liste_precedent_bouchon(self, sommet):
         if sommet == self.sommets[0]:
             return []
