@@ -51,8 +51,8 @@ class Graphe:
             # for index_pre in precedents[index_sommet]:
                 # if line_n[index_sommet] - line_n[index_pre] >= self.matrice[index_pre][index_sommet]:
                     # return "Belman ne s'applique pas au graphe"
-
-        if self.post_condidtion() == True :
+                    
+        if self.post_condidtion(tableau[len(self.sommets)-2]) == True :
             return tableau[len(self.sommets)-2]
     def liste_precedent_bouchon(self, sommet):
         if sommet == self.sommets[0]:
@@ -81,8 +81,7 @@ class Graphe:
                 index+=1
     
 
-    def post_condidtion(self):
-        liste_bellman = self.bellman_ford(g.sommets[0])
+    def post_condidtion(self,liste_bellman):
         for sommet in self.sommets[1:]:
             index_sommet = self.index_sommet(sommet)
             l = self.liste_precedent(sommet)
@@ -96,4 +95,3 @@ class Graphe:
 if __name__ == "__main__":
     g = Graphe()
     print(g.bellman_ford(g.sommets[0]))
-    print(g.post_condidtion())
