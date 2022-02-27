@@ -93,5 +93,27 @@ class Graphe:
                    
 
 if __name__ == "__main__":
+    a = Sommet("a")
+    b = Sommet("b")
+    c = Sommet("c")
+    d = Sommet("d")
+    e = Sommet("e")
     g = Graphe()
+    g.matrice = [[0, 15, 4, 0, 0],
+                [7, 0, 0, 0, 5],
+                [-2, 0, 0, 2, 0],
+                [3, 0, 0, 0, 3],
+                [0, 0, 0, 0, -9]]
+    g.sommets = [a,b,c,d,e]
     print(g.bellman_ford(g.sommets[0]))
+    assert(g.liste_precedent_tous()) == [[1, 2, 3], [0], [0], [2], [1, 3, 4]]
+    assert(g.index_sommet(a)) == 0
+    assert(g.index_sommet(b)) == 1
+    assert(g.index_sommet(c)) == 2
+    assert(g.index_sommet(d)) == 3
+    assert(g.index_sommet(e)) == 4
+    assert(g.liste_precedent(g.sommets[g.index_sommet(a)])) == [1, 2, 3]
+    assert(g.liste_precedent(g.sommets[g.index_sommet(b)])) == [0]
+    assert(g.liste_precedent(g.sommets[g.index_sommet(c)])) == [0]
+    assert(g.liste_precedent(g.sommets[g.index_sommet(d)])) == [2]
+    assert(g.liste_precedent(g.sommets[g.index_sommet(e)])) == [1, 3, 4]
