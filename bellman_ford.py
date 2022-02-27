@@ -72,13 +72,13 @@ class Graphe:
             list_prec_tous.append(self.liste_precedent(Sommet))
         return list_prec_tous
 
-    def index_sommet(self,sommet):
+    def index_sommet(self,Sommet):
         index = 0
-        for sommets in self.sommets:
-            if sommets == sommet:
-                 return index
-            else:
-                index+=1
+        while index<len(self.sommets):
+            if Sommet.contenu == self.sommets[index].contenu:
+                return index
+            index+=1
+        return "Ce sommet ne fait pas partie de ce graphe"
     
 
     def post_condidtion(self,liste_bellman):
